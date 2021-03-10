@@ -11,10 +11,10 @@ const {
 
 const router = express.Router();
 
-router.get('/:ownerId', getSensors);
+router.get('/:ownerId', [withJWT], getSensors);
 router.post('/', [ownerId, withJWT], createSensor);
 router.patch('/:id', [withJWT], updateSensor);
-router.delete('/:id', withJWT, deleteSensors);
+router.delete('/:id', [withJWT], deleteSensors);
 
 
 module.exports = router;

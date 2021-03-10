@@ -7,7 +7,7 @@ const e = require('express');
 const getData = async (req, res) => {
     const { sensorId } = req.params;
     try {
-        const docs = await DatasetsModel.find({ "id": sensorId }).select();
+        const docs = await DatasetsModel.find({ "sensorId": sensorId }).select();
         res.status(200).json(docs);
     } catch (e) {
         res.status(501).json({ error: { message: 'Something went wrong' } });
